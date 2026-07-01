@@ -25,9 +25,9 @@ export function DashboardScreen() {
     <section id="dashboard" className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <SectionHeading
-          eyebrow="01 — Financial Dashboard"
-          title="Everything you own and owe, resolved into one number you can trust."
-          description="Income, spending, savings, investments, and liabilities update from a single ledger — so the figure on screen is always the one that's actually true today."
+          eyebrow="01 · Dashboard"
+          title="Every account in one plot, so the total finally means something."
+          description="Income, spending, savings, investments and what you owe roll into a single ledger overnight. The number on screen this morning is the same one you'd get doing it by hand, just faster."
         />
 
         <Reveal delay={0.1} className="mt-14">
@@ -40,7 +40,7 @@ export function DashboardScreen() {
               <div>
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
                   <div>
-                    <span className="text-xs uppercase tracking-wide text-muted">
+                    <span className="coord-label text-muted">
                       Net worth
                     </span>
                     <div className="mt-1 flex items-baseline gap-3">
@@ -88,7 +88,7 @@ export function DashboardScreen() {
               <div className="flex flex-col gap-4">
                 <div>
                   <div className="mb-3 flex items-center justify-between">
-                    <span className="text-xs uppercase tracking-wide text-muted">
+                    <span className="coord-label text-muted">
                       Upcoming bills
                     </span>
                     <span className="text-xs text-muted">Next 14 days</span>
@@ -113,7 +113,7 @@ export function DashboardScreen() {
 
                 <div className="mt-auto rounded-lg border border-hairline bg-ink px-4 py-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs uppercase tracking-wide text-muted">
+                    <span className="coord-label text-muted">
                       Financial health
                     </span>
                     <a

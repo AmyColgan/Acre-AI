@@ -100,7 +100,7 @@ export function BarChart({ data, height = 220, ariaLabel }: BarChartProps) {
       </svg>
       {hover && (
         <p className="mt-1 text-center text-xs text-parchment-dim">
-          {data[hover.i].label} —{" "}
+          {data[hover.i].label},{" "}
           <span className="font-tabular text-parchment">
             {formatCurrency(hover.series === "income" ? data[hover.i].income : data[hover.i].expenses)}
           </span>{" "}

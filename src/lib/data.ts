@@ -48,10 +48,10 @@ export const dashboardStats = {
 };
 
 export const upcomingBills = [
-  { name: "Mortgage — 14 Birchwood Ln", amount: 3120, due: "Jul 3" },
+  { name: "Mortgage, 14 Birchwood Ln", amount: 3120, due: "Jul 3" },
   { name: "Private school tuition", amount: 2400, due: "Jul 5" },
   { name: "Umbrella insurance", amount: 340, due: "Jul 9" },
-  { name: "Car lease — Audi Q7", amount: 612, due: "Jul 12" },
+  { name: "Audi Q7 lease", amount: 612, due: "Jul 12" },
 ];
 
 export const budgetCategories = [
@@ -115,7 +115,7 @@ export const initialGoals: Goal[] = [
   },
   {
     id: "retirement",
-    name: "Retirement — target 58",
+    name: "Retirement by 58",
     target: 4200000,
     saved: 1180000,
     monthly: 4200,
@@ -159,7 +159,7 @@ export const holdings = [
 
 export const healthBreakdown = [
   { label: "Emergency reserve coverage", score: 92, note: "8.4 months of expenses covered" },
-  { label: "Debt-to-income ratio", score: 78, note: "24% — within a healthy range" },
+  { label: "Debt-to-income ratio", score: 78, note: "24%, within a healthy range" },
   { label: "Savings rate", score: 88, note: "40.4% of income saved monthly" },
   { label: "Portfolio diversification", score: 71, note: "Slightly concentrated in equities" },
   { label: "Insurance & protection", score: 65, note: "Umbrella policy renewal recommended" },
@@ -193,7 +193,7 @@ export const plannerSuggestions = [
 export function plannerResponse(input: string): string {
   const q = input.toLowerCase();
   if (q.includes("retire") || q.includes("retirement")) {
-    return "At a $4,200/mo contribution and a 6.8% blended return, your retirement fund reaches $4.2M by 2049 — age 58. A 5% market drawdown in any single year shifts that by roughly four months, not the target year itself.";
+    return "At $4,200 a month and a 6.8% blended return, the retirement fund hits $4.2M in 2049, the year you turn 58. A 5% drawdown in any single year pushes that back about four months, not the target year itself.";
   }
   if (q.includes("downturn") || q.includes("risk") || q.includes("crash")) {
     return "Your portfolio carries a 0.87 beta to global equities. In a modeled 20% drawdown, the balanced allocation would decline approximately 14.6% before fixed income and real assets dampen the fall.";
@@ -205,7 +205,7 @@ export function plannerResponse(input: string): string {
     return "At current vest value and your marginal bracket, an RSU sale nets approximately 63% after federal, state, and NIIT. Spreading the sale across two tax years could recover roughly $8,400.";
   }
   if (q.includes("goal") || q.includes("house") || q.includes("home")) {
-    return "The lake house fund is 40% funded with 3.5 years to target. At the current contribution rate, you arrive within 2 months of your 2029 date — no adjustment needed.";
+    return "The lake house fund sits at 40%, with 3.5 years to go. At the current rate you land within two months of the 2029 date. Nothing to change here.";
   }
-  return "Based on your current accounts, that trend is tracking within your plan's normal range. I can walk through the underlying numbers, or model a specific change if you'd like to see the effect on your long-term plan.";
+  return "That's tracking within the normal range for your accounts right now. Tell me what you're actually deciding between and I'll run the numbers on it.";
 }

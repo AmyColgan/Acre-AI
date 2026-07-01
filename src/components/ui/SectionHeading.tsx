@@ -26,7 +26,7 @@ export function SectionHeading({
       )}
     >
       <Reveal>
-        <span className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-brass-bright">
+        <span className="coord-label flex items-center gap-3 text-brass-bright">
           <span className="h-px w-8 bg-brass-bright/60" />
           {eyebrow}
         </span>

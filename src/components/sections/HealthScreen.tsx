@@ -21,9 +21,9 @@ export function HealthScreen() {
     <section id="health" className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <SectionHeading
-          eyebrow="06 — Financial Health Center"
-          title="A single score, built from the things that actually predict resilience."
-          description="Reserve coverage, debt load, savings discipline, diversification, and protection — weighted and tracked together, with a specific next action for each point you're leaving on the table."
+          eyebrow="06 · Health"
+          title="One score, built from the five things that actually predict trouble."
+          description="Reserve coverage, debt load, how consistently you save, how spread out your investments are, and whether you're actually insured for the life you have now. Each has a specific next step attached, not just a color."
         />
 
         <Reveal delay={0.1} className="mt-14">
@@ -65,7 +65,7 @@ export function HealthScreen() {
             </div>
 
             <div className="mt-10 border-t border-hairline pt-8">
-              <span className="text-xs uppercase tracking-wide text-muted">
+              <span className="coord-label text-muted">
                 Recommended actions
               </span>
               <div className="mt-4 flex flex-col gap-3">

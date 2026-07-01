@@ -1,58 +1,66 @@
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 const PRINCIPLES = [
   {
     index: "01",
-    title: "Grounded in your real accounts",
+    title: "Reads your actual accounts",
     detail:
-      "Every answer is computed from your actual balances and history — never a generic rule of thumb dressed up as advice.",
+      "Every answer starts from your real balances and transaction history. If the data doesn't support an answer, it says so instead of filling the gap with a rule of thumb.",
   },
   {
     index: "02",
-    title: "Shows its reasoning",
+    title: "Shows its work",
     detail:
-      "Acre states the assumption, the calculation, and the range of outcomes — so you can disagree with a number, not just trust it.",
+      "You get the assumption it made, the calculation behind it, and how wrong that could reasonably turn out to be. Something you can push back on, not a verdict you're meant to accept.",
   },
   {
     index: "03",
-    title: "Conservative by default",
+    title: "Says when it's unsure",
     detail:
-      "Where the data is ambiguous, it says so. Confidence is earned per answer, not assumed across the board.",
+      "Confidence gets earned answer by answer. When the data is thin, or the outcome depends on something outside your accounts, it tells you up front.",
   },
   {
     index: "04",
-    title: "Private by design",
+    title: "Keeps your data yours",
     detail:
-      "Your financial data is never used to train shared models, and never sold. It exists to serve your plan, and nothing else.",
+      "Nothing here trains a shared model, and nothing gets sold. It exists to run your plan, and nothing beyond that.",
   },
 ];
 
 export function TrustPrinciples() {
   return (
     <section id="trust" className="relative py-28 sm:py-36">
-      <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <SectionHeading
-          eyebrow="How it thinks"
-          title="Intelligence you can audit, not just believe."
-          description="A financial system earns trust the same way an advisor does — by showing its work every time, not only when asked."
-          align="left"
-        />
+      <div className="mx-auto max-w-5xl px-6 sm:px-10">
+        <div className="sm:pl-40">
+          <Reveal>
+            <span className="coord-label text-brass-bright">How it thinks</span>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="mt-4 max-w-xl font-display text-4xl font-light leading-[1.1] text-parchment text-balance sm:text-5xl">
+              You can audit this the way you&rsquo;d audit anyone else&rsquo;s math.
+            </h2>
+          </Reveal>
+        </div>
 
-        <div className="mt-16 grid gap-x-10 gap-y-14 sm:grid-cols-2">
+        <div className="mt-16 flex flex-col">
           {PRINCIPLES.map((p, i) => (
-            <Reveal key={p.index} delay={i * 0.08}>
-              <div className="border-t border-hairline-strong pt-6">
-                <span className="font-display text-sm text-brass-bright">{p.index}</span>
-                <h3 className="mt-3 font-display text-2xl font-light text-parchment">
-                  {p.title}
-                </h3>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-parchment-dim">
-                  {p.detail}
-                </p>
+            <Reveal key={p.index} delay={i * 0.06}>
+              <div className="grid grid-cols-[3rem_1fr] gap-6 border-t border-hairline-strong py-8 sm:grid-cols-[10rem_1fr] sm:gap-10">
+                <span className="font-mono text-3xl text-brass-dim sm:text-4xl">
+                  {p.index}
+                </span>
+                <div>
+                  <h3 className="font-display text-xl font-light text-parchment sm:text-2xl">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-parchment-dim">
+                    {p.detail}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}
+          <div className="border-t border-hairline-strong" />
         </div>
       </div>
     </section>

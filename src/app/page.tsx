@@ -2,6 +2,7 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { MapBreak } from "@/components/sections/MapBreak";
 import { DashboardScreen } from "@/components/sections/DashboardScreen";
 import { PlannerScreen } from "@/components/sections/PlannerScreen";
 import { GoalsScreen } from "@/components/sections/GoalsScreen";
@@ -17,6 +18,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <MapBreak />
         <DashboardScreen />
         <PlannerScreen />
         <GoalsScreen />

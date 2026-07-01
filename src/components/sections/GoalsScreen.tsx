@@ -54,12 +54,22 @@ export function GoalsScreen() {
   return (
     <section id="goals" className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading
-            eyebrow="03 — Goals & Wealth Planning"
-            title="Every ambition, funded on purpose — not by whatever is left over."
-            description="Set a target and Acre works backward to a monthly number, then tracks the pace against reality — emergency reserves, education, retirement, and the harder-to-name ones."
-          />
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <SectionHeading
+              eyebrow="03 · Goals"
+              title="Every ambition gets a number and a date, not whatever's left in checking."
+              description="Set a target and Acre works backward to a monthly figure, then tracks the pace against what actually happened. Reserves, tuition, retirement, and the harder ones to say out loud."
+            />
+          </div>
+          <div className="lg:col-span-5">
+            <blockquote className="border-l border-brass-dim pl-6">
+              <p className="font-display text-xl italic leading-snug text-parchment-dim sm:text-2xl">
+                &ldquo;Most financial goals are just wishes with a dollar
+                sign. A due date is what turns one into the other.&rdquo;
+              </p>
+            </blockquote>
+          </div>
         </div>
 
         <Reveal delay={0.1} className="mt-14">

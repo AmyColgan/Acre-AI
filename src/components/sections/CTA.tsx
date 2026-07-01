@@ -47,8 +47,8 @@ export function CTA() {
 
         <Reveal delay={0.16}>
           <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-parchment-dim">
-            Leave your email and we&apos;ll reach out as seats open. No spam, no
-            newsletter — just an invitation when it&apos;s ready.
+            Leave your email and I&apos;ll write when a seat opens. No spam,
+            no newsletter, just the one invitation.
           </p>
         </Reveal>
 
@@ -67,7 +67,7 @@ export function CTA() {
                   </span>
                   <p className="font-display text-lg text-parchment">You&apos;re on the list.</p>
                   <p className="text-sm text-muted">
-                    We&apos;ll write to {email} when a seat is ready.
+                    I&apos;ll write to {email} when a seat opens up.
                   </p>
                 </motion.div>
               ) : (

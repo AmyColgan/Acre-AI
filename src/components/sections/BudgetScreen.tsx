@@ -20,9 +20,9 @@ export function BudgetScreen() {
     <section id="budget" className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <SectionHeading
-          eyebrow="04 — Budget & Cash Flow"
-          title="Spending, categorized without you lifting a finger."
-          description="Every transaction is sorted automatically, and the moment a category drifts from its usual pace, Acre surfaces it — before it becomes a pattern."
+          eyebrow="04 · Budget"
+          title="Spending, sorted before you'd have gotten around to it."
+          description="Every transaction lands in a category on its own. The moment one starts drifting from its usual pace, Acre flags it, while it's still one odd week and not a habit."
         />
 
         <Reveal delay={0.1} className="mt-14">

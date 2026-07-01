@@ -24,7 +24,7 @@ export function StatTile({ label, value, delta, deltaTone = "neutral", className
         className
       )}
     >
-      <span className="block text-xs uppercase tracking-wide text-muted">{label}</span>
+      <span className="block coord-label text-muted">{label}</span>
       <span className="mt-1.5 block font-tabular text-2xl font-semibold text-parchment">
         {value}
       </span>

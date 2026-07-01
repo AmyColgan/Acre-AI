@@ -37,8 +37,9 @@
   --color-chart-7: #b0507a; /* rose */
   --color-chart-8: #0e9797; /* teal */
 
-  --font-display: "Fraunces", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
 }
 
 @theme inline {
@@ -73,6 +74,7 @@
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 * {
@@ -118,6 +120,13 @@ body {
 
 .font-tabular {
   font-variant-numeric: tabular-nums;
+}
+
+.coord-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* thin, quiet scrollbar in the ink theme */

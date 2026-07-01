@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { PlotMarks } from "@/components/ui/PlotMarks";
 
 interface ScreenFrameProps {
   title: string;
@@ -13,10 +14,11 @@ export function ScreenFrame({ title, subtitle, actions, children, className }: S
   return (
     <div
       className={cn(
-        "grain overflow-hidden rounded-3xl border border-hairline-strong bg-ink-2 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)]",
+        "grain relative overflow-hidden rounded-3xl border border-hairline-strong bg-ink-2 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)]",
         className
       )}
     >
+      <PlotMarks />
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-hairline px-6 py-5 sm:px-8">
         <div className="flex items-center gap-3">
           <span className="relative flex h-2 w-2">

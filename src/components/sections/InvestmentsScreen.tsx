@@ -27,9 +27,9 @@ export function InvestmentsScreen() {
     <section id="investments" className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <SectionHeading
-          eyebrow="05 — Investment & Portfolio Insights"
-          title="Performance you can explain to yourself, in one sitting."
-          description="Every holding maps to a purpose in your plan. Acre tracks allocation drift and translates performance into what it means for your timeline — not just the number itself."
+          eyebrow="05 · Investments"
+          title="Performance you could actually explain to someone, in one sitting."
+          description="Every holding is tied to a purpose in the plan. When allocation drifts, Acre translates the drift into what it costs your timeline, in years, not basis points."
         />
 
         <Reveal delay={0.1} className="mt-14">
@@ -47,7 +47,7 @@ export function InvestmentsScreen() {
 
             <div className="mt-8">
               <div className="mb-3 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wide text-muted">Holdings</span>
+                <span className="coord-label text-muted">Holdings</span>
                 <div className="flex items-center gap-1 text-xs text-muted">
                   Sort by
                   {(["value", "ytd"] as SortKey[]).map((key) => (
@@ -71,7 +71,7 @@ export function InvestmentsScreen() {
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[560px] border-collapse text-sm">
                   <thead>
-                    <tr className="border-b border-hairline text-left text-xs uppercase tracking-wide text-muted">
+                    <tr className="border-b border-hairline text-left coord-label text-muted">
                       <th className="pb-3 font-normal">Holding</th>
                       <th className="pb-3 font-normal">Weight</th>
                       <th className="pb-3 font-normal">Trend</th>

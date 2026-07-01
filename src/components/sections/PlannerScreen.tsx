@@ -18,7 +18,7 @@ const INITIAL_MESSAGES: Message[] = [
     id: "greeting",
     role: "assistant",
     content:
-      "I've reviewed your accounts through this morning. Ask me anything about your plan — spending, goals, risk, or a decision you're weighing.",
+      "I've been through your accounts this morning. Ask about spending, a goal, some risk you're carrying, whatever you're deciding on.",
   },
 ];
 
@@ -59,9 +59,9 @@ export function PlannerScreen() {
     <section id="planner" className="relative py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <SectionHeading
-          eyebrow="02 — AI Financial Planner"
-          title="Ask it the way you'd ask a trusted advisor. It answers in the same language."
-          description="Acre's planner reads your accounts, models the trade-offs, and answers in plain terms — showing its reasoning, not just a verdict."
+          eyebrow="02 · Planner"
+          title="Ask it the way you'd ask a person who actually knows your accounts."
+          description="It reads your real numbers before it answers, and shows the arithmetic behind the answer, so you can check it if something looks off."
         />
 
         <Reveal delay={0.1} className="mt-14">
@@ -131,7 +131,7 @@ export function PlannerScreen() {
               </div>
 
               <div className="flex flex-col gap-2.5">
-                <span className="text-xs uppercase tracking-wide text-muted">Try asking</span>
+                <span className="coord-label text-muted">Try asking</span>
                 {plannerSuggestions.map((s) => (
                   <button
                     key={s}

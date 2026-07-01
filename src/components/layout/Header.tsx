@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { LogoMark } from "@/components/ui/LogoMark";
 
 const NAV_LINKS = [
   { label: "Product", href: "#dashboard" },
@@ -39,9 +40,10 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-10">
         <a
           href="#top"
-          className="font-display text-xl font-medium tracking-wide text-parchment"
+          className="flex items-center gap-2.5 text-parchment"
         >
-          Acre
+          <LogoMark size={26} className="text-brass-bright" />
+          <span className="font-display text-xl font-medium tracking-wide">Acre</span>
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">
