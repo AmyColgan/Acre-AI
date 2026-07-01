@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  /* Surfaces */
+  --color-ink: #100e0a;
+  --color-ink-2: #17140f;
+  --color-ink-3: #201c15;
+  --color-ink-4: #2a2419;
+
+  /* Text */
+  --color-parchment: #f4efe2;
+  --color-parchment-dim: #cdc6b4;
+  --color-muted: #8f8a7c;
+
+  /* Hairlines */
+  --color-hairline: rgba(244, 239, 226, 0.1);
+  --color-hairline-strong: rgba(244, 239, 226, 0.2);
+
+  /* Accents */
+  --color-brass: #b8863a;
+  --color-brass-bright: #d9b877;
+  --color-brass-dim: #8a693076;
+
+  --color-emerald: #2f8f6f;
+  --color-emerald-bright: #5cbfa0;
+
+  --color-rust: #b2532f;
+  --color-rust-bright: #d97a52;
+
+  /* Categorical chart palette — validated: OKLCH L 0.48-0.67, C >= 0.10, dark surface #17140f */
+  --color-chart-1: #b8863a; /* brass */
+  --color-chart-2: #2f8f6f; /* emerald */
+  --color-chart-3: #3f74b0; /* steel blue */
+  --color-chart-4: #b2532f; /* rust */
+  --color-chart-5: #7357b0; /* violet */
+  --color-chart-6: #8a8a2f; /* olive */
+  --color-chart-7: #b0507a; /* rose */
+  --color-chart-8: #0e9797; /* teal */
+
+  --font-display: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-ink-3: var(--color-ink-3);
+  --color-ink-4: var(--color-ink-4);
+
+  --color-parchment: var(--color-parchment);
+  --color-parchment-dim: var(--color-parchment-dim);
+  --color-muted: var(--color-muted);
+
+  --color-hairline: var(--color-hairline);
+  --color-hairline-strong: var(--color-hairline-strong);
+
+  --color-brass: var(--color-brass);
+  --color-brass-bright: var(--color-brass-bright);
+  --color-brass-dim: var(--color-brass-dim);
+  --color-emerald: var(--color-emerald);
+  --color-emerald-bright: var(--color-emerald-bright);
+  --color-rust: var(--color-rust);
+  --color-rust-bright: var(--color-rust-bright);
+
+  --color-chart-1: var(--color-chart-1);
+  --color-chart-2: var(--color-chart-2);
+  --color-chart-3: var(--color-chart-3);
+  --color-chart-4: var(--color-chart-4);
+  --color-chart-5: var(--color-chart-5);
+  --color-chart-6: var(--color-chart-6);
+  --color-chart-7: var(--color-chart-7);
+  --color-chart-8: var(--color-chart-8);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-ink);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-parchment);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+/* Fine paper-grain texture over the ink surface — restrained, not decorative */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* thin, quiet scrollbar in the ink theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-4);
+  border-radius: 999px;
+  border: 2px solid var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brass-dim);
+}
