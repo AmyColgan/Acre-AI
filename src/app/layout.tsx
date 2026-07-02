@@ -1,33 +1,29 @@
-import type { Metadata } from "next";
-import { Source_Serif_4, Archivo, Space_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { PulseProvider } from "@/lib/store";
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-display",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: "variable",
-  style: ["normal", "italic"],
   display: "swap",
 });
 
-const archivo = Archivo({
-  variable: "--font-sans",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: "variable",
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Acre · a private wealth practice, surveyed",
+  title: "PULSE AI · Your AI financial strategist for every money decision",
   description:
-    "Acre reads your income, spending, goals and holdings the way a surveyor reads land: one plot, mapped honestly, so you always know exactly what you're standing on.",
+    "Pulse AI analyzes your income, spending, goals, debt, and investments to tell you what changed, what matters, and what to do next.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#050816",
 };
 
 export default function RootLayout({
@@ -36,12 +32,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${sourceSerif.variable} ${archivo.variable} ${spaceMono.variable}`}
-    >
-      <body className="bg-ink text-parchment font-sans antialiased">
-        {children}
+    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
+      <body className="bg-void text-snow font-sans antialiased">
+        <PulseProvider>{children}</PulseProvider>
       </body>
     </html>
   );
