@@ -121,13 +121,13 @@ export function PulseProvider({ children }: { children: ReactNode }) {
     }
   }, [state, hydrated]);
 
-  // theme preference (Midnight navy vs Charcoal) applies as CSS variables
+  // theme preference (Graphite default vs neutral Charcoal) applies as CSS variables
   useEffect(() => {
     const charcoal = !!state.flags["themeCharcoal"];
     const root = document.documentElement;
-    root.style.setProperty("--color-void", charcoal ? "#0a0a12" : "#050816");
-    root.style.setProperty("--color-deep", charcoal ? "#0e0e18" : "#070b1d");
-    root.style.setProperty("--color-panel", charcoal ? "#14141f" : "#0c1228");
+    root.style.setProperty("--color-void", charcoal ? "#0b0b0e" : "#0a0d12");
+    root.style.setProperty("--color-deep", charcoal ? "#101013" : "#0d1117");
+    root.style.setProperty("--color-panel", charcoal ? "#15151a" : "#11161d");
   }, [state.flags]);
 
   const dismissToast = useCallback((id: string) => {

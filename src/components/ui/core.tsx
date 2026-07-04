@@ -61,7 +61,7 @@ export function Button({
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
   const styles: Record<ButtonVariant, string> = {
     primary:
-      "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-[0_8px_24px_-8px_rgba(59,130,246,0.7)] hover:from-blue-500 hover:to-blue-400",
+      "bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-[0_8px_24px_-8px_rgba(13,148,136,0.7)] hover:from-teal-500 hover:to-emerald-500",
     secondary:
       "bg-raise text-snow border border-line hover:border-line-strong hover:bg-raise-2",
     ghost: "text-fog hover:text-snow hover:bg-raise",
@@ -104,9 +104,9 @@ export function Badge({
 }) {
   const tones = {
     neutral: "bg-raise text-fog border-line",
-    blue: "bg-blue-500/10 text-pulse border-blue-500/25",
+    blue: "bg-teal-500/10 text-pulse border-teal-500/25",
     green: "bg-emerald-500/10 text-mint border-emerald-500/25",
-    violet: "bg-violet-500/10 text-iris border-violet-500/25",
+    violet: "bg-indigo-500/10 text-iris border-indigo-500/25",
     amber: "bg-amber-500/10 text-gold border-amber-500/25",
     rose: "bg-rose-500/10 text-coral border-rose-500/25",
   };
@@ -183,7 +183,7 @@ export function Modal({
 /* --------------------------------- Fields ----------------------------------- */
 
 const fieldBase =
-  "w-full rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20";
+  "w-full rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-teal-500/60 focus:ring-2 focus:ring-teal-500/20";
 
 export function Field({
   label,
@@ -268,7 +268,7 @@ export function Segmented<T extends string>({
           className={clsx(
             "rounded-xl border px-3 py-2.5 text-center transition-all cursor-pointer",
             value === o.value
-              ? "border-blue-500/60 bg-blue-500/10 text-snow shadow-[0_0_20px_-6px_rgba(59,130,246,0.5)]"
+              ? "border-teal-500/60 bg-teal-500/10 text-snow shadow-[0_0_20px_-6px_rgba(13,148,136,0.5)]"
               : "border-line bg-panel/60 text-fog hover:border-line-strong hover:text-snow"
           )}
         >
@@ -292,9 +292,9 @@ export function ProgressBar({
   className?: string;
 }) {
   const tones = {
-    blue: "from-blue-600 to-blue-400",
+    blue: "from-teal-600 to-teal-400",
     green: "from-emerald-700 to-emerald-500",
-    violet: "from-violet-600 to-violet-400",
+    violet: "from-indigo-600 to-indigo-400",
     amber: "from-amber-600 to-amber-400",
     rose: "from-rose-600 to-rose-400",
   };
@@ -510,7 +510,7 @@ export function PageHead({
   return (
     <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">{title}</h1>
+        <h1 className="font-display text-2xl tracking-tight sm:text-[1.75rem]">{title}</h1>
         {sub && <p className="mt-1 max-w-2xl text-sm text-fog">{sub}</p>}
       </div>
       {actions && <div className="flex items-center gap-2">{actions}</div>}
@@ -523,9 +523,9 @@ export function PageHead({
 export function Orbs({ dim = false }: { dim?: boolean }) {
   return (
     <div aria-hidden className={clsx("pointer-events-none fixed inset-0 overflow-hidden", dim && "opacity-60")}>
-      <div className="orb orb-drift left-[-10%] top-[-12%] h-[420px] w-[420px] bg-blue-600/20" />
-      <div className="orb orb-drift-slow right-[-8%] top-[22%] h-[380px] w-[380px] bg-violet-600/14" />
-      <div className="orb orb-drift bottom-[-14%] left-[28%] h-[360px] w-[360px] bg-emerald-600/10" />
+      <div className="aurora" />
+      
+      
       <div className="bg-grid absolute inset-0" />
     </div>
   );

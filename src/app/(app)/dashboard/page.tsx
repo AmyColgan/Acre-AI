@@ -56,8 +56,8 @@ export default function Dashboard() {
     .sort((a, b) => b.value - a.value);
   const topPie = pieData.slice(0, 5);
   const otherSum = pieData.slice(5).reduce((s, d) => s + d.value, 0);
-  if (otherSum > 0) topPie.push({ name: "Everything else", value: otherSum, color: "#3a4368" });
-  const pieFinal = topPie.map((d, i) => ({ ...d, color: i === 5 ? "#3a4368" : SERIES[i % SERIES.length] }));
+  if (otherSum > 0) topPie.push({ name: "Everything else", value: otherSum, color: "#333e4d" });
+  const pieFinal = topPie.map((d, i) => ({ ...d, color: i === 5 ? "#333e4d" : SERIES[i % SERIES.length] }));
 
   const debtPressure = totals.debtTotal > 0 ? Math.round((totals.debtBudget / state.monthlyIncome) * 100) : 0;
   const goalAvg = Math.round(
@@ -70,7 +70,7 @@ export default function Dashboard() {
     <div className="space-y-6">
       {/* greeting */}
       <div className="rise-in">
-        <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
+        <h1 className="font-display text-2xl tracking-tight sm:text-[1.75rem]">
           {greeting()}, {state.profile.name}.
         </h1>
         <p className="mt-1 text-sm text-fog">Here&apos;s what changed in your financial life today.</p>
@@ -78,9 +78,9 @@ export default function Dashboard() {
 
       {/* AI summary card */}
       <Card className="rise-in relative overflow-hidden p-5 sm:p-6" >
-        <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-blue-600/15 blur-3xl" />
+        <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-teal-600/15 blur-3xl" />
         <div className="relative flex flex-col gap-5 lg:flex-row lg:items-start">
-          <span className="ai-pulse flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+          <span className="ai-pulse flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
             <Icon name="sparkles" size={22} />
           </span>
           <div className="min-w-0 flex-1 space-y-3">
@@ -104,7 +104,7 @@ export default function Dashboard() {
                 <p className="mt-1 text-xs leading-relaxed text-fog">{brief.opportunity}</p>
               </div>
             </div>
-            <p className="rounded-xl border border-blue-500/20 bg-blue-500/[0.07] p-3 text-sm leading-relaxed text-snow/90">
+            <p className="rounded-xl border border-teal-500/20 bg-teal-500/[0.07] p-3 text-sm leading-relaxed text-snow/90">
               <span className="font-semibold text-pulse">Recommended: </span>
               {brief.recommendation}
             </p>
@@ -240,8 +240,8 @@ export default function Dashboard() {
           <PulseBars
             data={ieSeries}
             series={[
-              { key: "income", label: "Income", color: SERIES[1] },
-              { key: "expenses", label: "Expenses", color: SERIES[0] },
+              { key: "income", label: "Income", color: SERIES[4] },
+              { key: "expenses", label: "Expenses", color: SERIES[1] },
             ]}
             height={210}
           />
@@ -388,9 +388,9 @@ function StatCard({
   delta?: { up: boolean; text: string };
 }) {
   const tones = {
-    blue: "text-pulse bg-blue-500/12",
+    blue: "text-pulse bg-teal-500/12",
     green: "text-mint bg-emerald-500/12",
-    violet: "text-iris bg-violet-500/12",
+    violet: "text-iris bg-indigo-500/12",
     amber: "text-gold bg-amber-500/12",
     rose: "text-coral bg-rose-500/12",
   };

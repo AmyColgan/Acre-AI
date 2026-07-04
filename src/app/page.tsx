@@ -66,20 +66,21 @@ export default function Landing() {
     <div className="relative min-h-screen overflow-hidden">
       {/* scenery */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="orb orb-drift left-[-12%] top-[-10%] h-[540px] w-[540px] bg-blue-600/25" />
-        <div className="orb orb-drift-slow right-[-10%] top-[16%] h-[480px] w-[480px] bg-violet-600/18" />
-        <div className="orb orb-drift bottom-[-16%] left-[30%] h-[420px] w-[420px] bg-emerald-600/10" />
+        <div className="aurora" />
+        <div className="orb orb-drift left-[-12%] top-[-10%] h-[540px] w-[540px] bg-teal-600/12" />
+        <div className="orb orb-drift-slow right-[-10%] top-[16%] h-[480px] w-[480px] bg-indigo-600/10" />
+        <div className="orb orb-drift bottom-[-16%] left-[30%] h-[420px] w-[420px] bg-emerald-600/8" />
         <div className="bg-grid absolute inset-0" />
       </div>
 
       {/* nav */}
       <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
         <div className="flex items-center gap-2.5">
-          <span className="ai-pulse flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+          <span className="ai-pulse flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
             <Icon name="logo" size={20} strokeWidth={2.2} />
           </span>
           <span className="text-lg font-bold tracking-wide">
-            PULSE <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI</span>
+            PULSE <span className="bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent">AI</span>
           </span>
         </div>
         <button
@@ -97,9 +98,9 @@ export default function Landing() {
             <span className="ai-breathe h-1.5 w-1.5 rounded-full bg-mint" />
             Your AI financial strategist for every money decision
           </div>
-          <h1 className="rise-in mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]" style={{ animationDelay: "80ms" }}>
+          <h1 className="font-display rise-in mt-5 text-4xl leading-[1.06] tracking-tight sm:text-5xl lg:text-[3.5rem]" style={{ animationDelay: "80ms" }}>
             Meet the AI financial strategist that turns your money into a{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-300 via-emerald-300 to-amber-200 bg-clip-text italic text-transparent">
               living plan.
             </span>
           </h1>
@@ -110,7 +111,7 @@ export default function Landing() {
           <div className="rise-in mt-8 flex flex-wrap items-center gap-4" style={{ animationDelay: "240ms" }}>
             <button
               onClick={launch}
-              className="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_20px_50px_-12px_rgba(99,102,241,0.7)] transition-all hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+              className="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 px-7 py-3.5 text-base font-semibold text-white shadow-[0_20px_50px_-12px_rgba(16,185,129,0.7)] transition-all hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
             >
               Launch Financial Command Center
               <Icon name="arrowRight" size={18} className="transition-transform group-hover:translate-x-1" />
@@ -155,7 +156,7 @@ export default function Landing() {
           {/* AI insight card */}
           <div className="glass-strong rise-in absolute -left-4 -bottom-20 w-[78%] rounded-2xl p-4 sm:-left-8" style={{ animationDelay: "360ms" }}>
             <div className="flex items-start gap-2.5">
-              <span className="ai-breathe mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+              <span className="ai-breathe mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
                 <Icon name="sparkles" size={13} />
               </span>
               <div>
@@ -197,9 +198,9 @@ export default function Landing() {
 
       {/* features */}
       <section className="relative z-10 mx-auto max-w-6xl px-5 py-20">
-        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+        <h2 className="font-display text-center text-2xl tracking-tight sm:text-3xl">
           Not a budgeting app. A{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent">
             command center.
           </span>
         </h2>
@@ -210,7 +211,7 @@ export default function Landing() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f, i) => (
             <div key={f.title} className="glass hover-lift rounded-2xl p-6" style={{ animationDelay: `${i * 60}ms` }}>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 text-pulse">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500/15 to-emerald-500/15 text-pulse">
                 <Icon name={f.icon} size={20} />
               </span>
               <h3 className="mt-4 text-base font-semibold">{f.title}</h3>
@@ -225,7 +226,7 @@ export default function Landing() {
         <div className="mx-auto max-w-6xl px-5 py-20">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">How the intelligence works</h2>
+              <h2 className="font-display text-2xl tracking-tight sm:text-3xl">How the intelligence works</h2>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-fog">
                 Every recommendation is computed from your actual data — balances, rates, budgets, and
                 deadlines — then explained in plain language. No black box, no generic tips.
@@ -318,14 +319,14 @@ export default function Landing() {
 
       {/* final CTA */}
       <section className="relative z-10 px-5 pb-24 text-center">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <h2 className="font-display text-2xl tracking-tight sm:text-3xl">
           Your money already has a pulse.
           <br />
           Start listening to it.
         </h2>
         <button
           onClick={launch}
-          className="group mt-8 inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-4 text-base font-semibold text-white shadow-[0_20px_50px_-12px_rgba(99,102,241,0.7)] transition-all hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+          className="group mt-8 inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 px-8 py-4 text-base font-semibold text-white shadow-[0_20px_50px_-12px_rgba(16,185,129,0.7)] transition-all hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
         >
           Launch Financial Command Center
           <Icon name="arrowRight" size={18} className="transition-transform group-hover:translate-x-1" />

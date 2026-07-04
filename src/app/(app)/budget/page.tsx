@@ -98,8 +98,8 @@ export default function Budget() {
     .sort((a, b) => b.value - a.value)
     .slice(0, 5);
   const rest = state.categories.reduce((s, c) => s + spent[c.id], 0) - pieData.reduce((s, d) => s + d.value, 0);
-  if (rest > 1) pieData.push({ name: "Everything else", value: Math.round(rest), color: "#3a4368" });
-  const pieFinal = pieData.map((d, i) => ({ ...d, color: d.name === "Everything else" ? "#3a4368" : SERIES[i % SERIES.length] }));
+  if (rest > 1) pieData.push({ name: "Everything else", value: Math.round(rest), color: "#333e4d" });
+  const pieFinal = pieData.map((d, i) => ({ ...d, color: d.name === "Everything else" ? "#333e4d" : SERIES[i % SERIES.length] }));
 
   const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
   const today = new Date().getDate();
@@ -115,7 +115,7 @@ export default function Budget() {
 
       {/* safe to spend hero */}
       <Card className="rise-in relative overflow-hidden p-6">
-        <div aria-hidden className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-violet-600/15 blur-3xl" />
+        <div aria-hidden className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-indigo-600/15 blur-3xl" />
         <div className="relative flex flex-wrap items-center gap-6">
           <div>
             <div className="text-[11px] font-medium uppercase tracking-wider text-dim">Safe to spend this week</div>
@@ -216,7 +216,7 @@ export default function Budget() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search transactions…"
-                className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none focus:border-blue-500/50"
+                className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none focus:border-teal-500/50"
               />
             </div>
             <Select value={filterCat} onChange={(e) => setFilterCat(e.target.value)} className="w-36">
@@ -278,7 +278,7 @@ export default function Budget() {
                   danger
                     ? "border-amber-500/40 bg-amber-500/10"
                     : day === today
-                      ? "border-blue-500/40 bg-blue-500/10"
+                      ? "border-teal-500/40 bg-teal-500/10"
                       : "border-line bg-panel/40",
                   dayEvents.length > 0 && "hover:border-line-strong"
                 )}
@@ -320,7 +320,7 @@ export default function Budget() {
           <PulseBars
             data={budgetVsActual}
             series={[
-              { key: "budget", label: "Budget", color: "#3a4368" },
+              { key: "budget", label: "Budget", color: "#333e4d" },
               { key: "actual", label: "Actual", color: SERIES[0] },
             ]}
             height={190}
@@ -438,7 +438,7 @@ function TxRow({ t, catName, onDelete }: { t: Transaction; catName: string; onDe
       <span
         className={clsx(
           "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
-          isIn ? "bg-emerald-500/12 text-mint" : isTransfer ? "bg-violet-500/12 text-iris" : "bg-blue-500/10 text-pulse"
+          isIn ? "bg-emerald-500/12 text-mint" : isTransfer ? "bg-indigo-500/12 text-iris" : "bg-teal-500/10 text-pulse"
         )}
       >
         <Icon name={isIn ? "trendingUp" : isTransfer ? "refresh" : "wallet"} size={14} />

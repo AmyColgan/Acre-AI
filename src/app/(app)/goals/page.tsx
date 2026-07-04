@@ -282,7 +282,7 @@ export default function Goals() {
                 key={y}
                 onClick={() => setYears(y)}
                 className={`rounded-lg px-3 py-1 text-xs font-medium transition-colors cursor-pointer ${
-                  years === y ? "bg-blue-500/20 text-pulse" : "text-fog hover:text-snow"
+                  years === y ? "bg-teal-500/20 text-pulse" : "text-fog hover:text-snow"
                 }`}
               >
                 {y}y
@@ -386,7 +386,7 @@ export default function Goals() {
                 <button
                   key={a}
                   onClick={() => setContribution(a)}
-                  className="flex-1 rounded-xl border border-line bg-panel/60 py-2 text-sm text-fog transition-colors hover:border-blue-500/40 hover:text-snow cursor-pointer"
+                  className="flex-1 rounded-xl border border-line bg-panel/60 py-2 text-sm text-fog transition-colors hover:border-teal-500/40 hover:text-snow cursor-pointer"
                 >
                   {fmtMoney(a)}
                 </button>

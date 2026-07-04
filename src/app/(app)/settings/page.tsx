@@ -157,10 +157,10 @@ export default function Settings() {
                     value={state.flags["themeCharcoal"] ? "charcoal" : "midnight"}
                     onChange={(e) => {
                       patch((s) => ({ ...s, flags: { ...s.flags, themeCharcoal: e.target.value === "charcoal" } }));
-                      toast(`Theme set to ${e.target.value === "charcoal" ? "Charcoal" : "Midnight Navy"}.`);
+                      toast(`Theme set to ${e.target.value === "charcoal" ? "Charcoal" : "Graphite"}.`);
                     }}
                   >
-                    <option value="midnight">Midnight Navy</option>
+                    <option value="midnight">Graphite (default)</option>
                     <option value="charcoal">Charcoal</option>
                   </Select>
                 </Field>

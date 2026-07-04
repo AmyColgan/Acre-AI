@@ -93,9 +93,9 @@ export default function Investments() {
       />
 
       {aiRec && (
-        <Card className="rise-in mb-4 border-blue-500/25 p-4">
+        <Card className="rise-in mb-4 border-teal-500/25 p-4">
           <div className="flex items-start gap-3">
-            <span className="ai-breathe mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+            <span className="ai-breathe mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
               <Icon name="sparkles" size={14} />
             </span>
             <p className="flex-1 text-sm leading-relaxed text-snow/90">{aiRec}</p>
@@ -141,7 +141,7 @@ export default function Investments() {
       {/* AI narrative */}
       <Card className="rise-in mt-4 p-5">
         <div className="flex items-start gap-3">
-          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet-500/12 text-iris">
+          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-500/12 text-iris">
             <Icon name="compass" size={17} />
           </span>
           <div>
@@ -194,7 +194,7 @@ export default function Investments() {
           <PulseLine
             data={projection}
             series={[
-              { key: "projected", label: "Projected value", color: SERIES[1] },
+              { key: "projected", label: "Projected value", color: SERIES[4] },
               { key: "invested", label: "Total contributed", color: SERIES[2], dashed: true },
             ]}
             height={200}
@@ -227,7 +227,7 @@ export default function Investments() {
                 data={savingsVsInvest}
                 series={[
                   { key: "savings", label: "Savings", color: SERIES[2] },
-                  { key: "investments", label: "Investments", color: SERIES[1] },
+                  { key: "investments", label: "Investments", color: SERIES[4] },
                 ]}
                 height={150}
               />

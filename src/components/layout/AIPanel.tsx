@@ -24,7 +24,7 @@ export function AIFloatingButton({ onClick, open }: { onClick: () => void; open:
     <button
       onClick={onClick}
       aria-label="Open Pulse AI assistant"
-      className="ai-pulse fixed bottom-20 right-4 z-[70] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 via-violet-500 to-violet-600 text-white shadow-[0_16px_40px_-8px_rgba(99,102,241,0.65)] transition-transform hover:scale-105 active:scale-95 sm:bottom-6 sm:right-6 cursor-pointer"
+      className="ai-pulse fixed bottom-20 right-4 z-[70] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-600 text-white shadow-[0_16px_40px_-8px_rgba(16,185,129,0.65)] transition-transform hover:scale-105 active:scale-95 sm:bottom-6 sm:right-6 cursor-pointer"
     >
       <Icon name="sparkles" size={24} strokeWidth={2} />
     </button>
@@ -99,7 +99,7 @@ export function AIPanel({ open, onClose }: { open: boolean; onClose: () => void 
       <div className="slide-in-right glass-strong absolute inset-y-0 right-0 flex w-full max-w-md flex-col sm:rounded-l-2xl">
         {/* header */}
         <div className="flex items-center gap-3 border-b border-line px-5 py-4">
-          <span className="ai-breathe flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+          <span className="ai-breathe flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
             <Icon name="sparkles" size={19} />
           </span>
           <div className="flex-1">
@@ -147,7 +147,7 @@ export function AIPanel({ open, onClose }: { open: boolean; onClose: () => void 
                   <button
                     key={p}
                     onClick={() => ask(p)}
-                    className="rounded-xl border border-line bg-panel/60 px-3.5 py-2.5 text-left text-sm text-fog transition-all hover:border-blue-500/40 hover:text-snow cursor-pointer"
+                    className="rounded-xl border border-line bg-panel/60 px-3.5 py-2.5 text-left text-sm text-fog transition-all hover:border-teal-500/40 hover:text-snow cursor-pointer"
                   >
                     {p}
                   </button>
@@ -159,13 +159,13 @@ export function AIPanel({ open, onClose }: { open: boolean; onClose: () => void 
           {messages.map((m) =>
             m.role === "user" ? (
               <div key={m.id} className="flex justify-end">
-                <div className="max-w-[85%] rounded-2xl rounded-br-md bg-gradient-to-r from-blue-600 to-blue-500 px-4 py-2.5 text-sm text-white">
+                <div className="max-w-[85%] rounded-2xl rounded-br-md bg-gradient-to-r from-teal-600 to-emerald-600 px-4 py-2.5 text-sm text-white">
                   {m.text}
                 </div>
               </div>
             ) : (
               <div key={m.id} className="rise-in flex gap-2.5">
-                <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+                <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
                   <Icon name="sparkles" size={13} />
                 </span>
                 <div className="min-w-0 flex-1 space-y-2.5">
@@ -213,7 +213,7 @@ export function AIPanel({ open, onClose }: { open: boolean; onClose: () => void 
 
           {thinking && (
             <div className="flex items-center gap-2.5 text-fog">
-              <span className="ai-breathe flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+              <span className="ai-breathe flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
                 <Icon name="sparkles" size={13} />
               </span>
               <span className="text-xs">Pulse is analyzing your data…</span>
@@ -234,13 +234,13 @@ export function AIPanel({ open, onClose }: { open: boolean; onClose: () => void 
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about a purchase, debt, goals…"
-              className="flex-1 rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none focus:border-blue-500/50"
+              className="flex-1 rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none focus:border-teal-500/50"
             />
             <button
               type="submit"
               disabled={!input.trim() || thinking}
               aria-label="Send"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white transition-all hover:scale-105 active:scale-95 disabled:opacity-40 cursor-pointer"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 text-white transition-all hover:scale-105 active:scale-95 disabled:opacity-40 cursor-pointer"
             >
               <Icon name="send" size={16} />
             </button>

@@ -35,16 +35,16 @@ function Sidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col border-r border-line bg-deep/70 backdrop-blur-xl lg:flex">
       <Link href="/dashboard" className="flex items-center gap-2.5 px-5 pb-4 pt-6">
-        <span className="ai-pulse flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 text-white shadow-lg">
+        <span className="ai-pulse flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white shadow-lg">
           <Icon name="logo" size={20} strokeWidth={2.2} />
         </span>
         <span className="text-[17px] font-bold tracking-wide">
-          PULSE <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">AI</span>
+          PULSE <span className="bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent">AI</span>
         </span>
       </Link>
 
       <div className="mx-4 mb-4 flex items-center gap-3 rounded-xl border border-line bg-panel/60 p-3">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-600 text-sm font-bold text-white">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-sm font-bold text-white">
           {state.profile.name.slice(0, 1).toUpperCase()}
         </span>
         <div className="min-w-0 flex-1">
@@ -76,7 +76,7 @@ function Sidebar() {
               className={clsx(
                 "group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all",
                 active
-                  ? "bg-gradient-to-r from-blue-500/15 to-transparent text-snow shadow-[inset_2px_0_0_var(--color-pulse)]"
+                  ? "bg-gradient-to-r from-teal-500/12 to-transparent text-snow shadow-[inset_2px_0_0_var(--color-pulse)]"
                   : "text-fog hover:bg-raise/70 hover:text-snow"
               )}
             >
@@ -143,7 +143,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
       <div className="flex items-center gap-3 px-4 py-3 sm:px-6">
         {/* mobile logo */}
         <Link href="/dashboard" className="flex items-center gap-2 lg:hidden">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
             <Icon name="logo" size={17} strokeWidth={2.2} />
           </span>
         </Link>
@@ -159,7 +159,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
             }}
             onFocus={() => setShowResults(true)}
             placeholder="Search transactions, pages…"
-            className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-blue-500/50"
+            className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-teal-500/50"
           />
           {showResults && (results.pages.length > 0 || results.txs.length > 0) && (
             <div className="glass-strong absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-xl scale-in">
@@ -217,7 +217,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
           <div ref={quickRef} className="relative">
             <button
               onClick={() => setShowQuick((v) => !v)}
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-[0_6px_20px_-6px_rgba(59,130,246,0.7)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-[0_6px_20px_-6px_rgba(13,148,136,0.7)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
               aria-label="Quick actions"
             >
               <Icon name="plus" size={17} strokeWidth={2.2} />
@@ -291,7 +291,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
           {/* avatar */}
           <Link
             href="/settings"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-blue-600 text-sm font-bold text-white ring-1 ring-line transition-transform hover:scale-105"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-sm font-bold text-white ring-1 ring-line transition-transform hover:scale-105"
             title="Settings"
           >
             {state.profile.name.slice(0, 1).toUpperCase()}
@@ -363,7 +363,7 @@ function MobileMoreSheet({ open, onClose }: { open: boolean; onClose: () => void
                 className={clsx(
                   "flex flex-col items-center gap-1.5 rounded-xl border p-3 text-center text-[11px] transition-colors",
                   active
-                    ? "border-blue-500/40 bg-blue-500/10 text-snow"
+                    ? "border-teal-500/40 bg-teal-500/10 text-snow"
                     : "border-line bg-panel/60 text-fog"
                 )}
               >

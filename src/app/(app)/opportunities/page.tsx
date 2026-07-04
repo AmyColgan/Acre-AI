@@ -94,7 +94,7 @@ export default function Opportunities() {
             onClick={() => setTab(t.key)}
             className={clsx(
               "flex-1 rounded-lg px-4 py-1.5 text-xs font-medium transition-colors sm:flex-none cursor-pointer",
-              tab === t.key ? "bg-blue-500/20 text-pulse" : "text-fog hover:text-snow"
+              tab === t.key ? "bg-teal-500/20 text-pulse" : "text-fog hover:text-snow"
             )}
           >
             {t.label}

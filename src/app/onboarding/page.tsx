@@ -184,15 +184,15 @@ export default function Onboarding() {
     return (
       <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-5">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="orb orb-drift left-[-10%] top-[-10%] h-[480px] w-[480px] bg-blue-600/22" />
-          <div className="orb orb-drift-slow right-[-8%] bottom-[-10%] h-[420px] w-[420px] bg-violet-600/16" />
+          <div className="orb orb-drift left-[-10%] top-[-10%] h-[480px] w-[480px] bg-teal-600/12" />
+          <div className="orb orb-drift-slow right-[-8%] bottom-[-10%] h-[420px] w-[420px] bg-indigo-600/9" />
           <div className="bg-grid absolute inset-0" />
         </div>
         <div className="glass-strong relative w-full max-w-md rounded-2xl p-8 text-center scale-in">
-          <span className="ai-pulse mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-violet-600 text-white">
+          <span className="ai-pulse mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
             <Icon name="sparkles" size={28} />
           </span>
-          <h1 className="mt-6 text-lg font-semibold">Building your financial intelligence system…</h1>
+          <h1 className="font-display mt-6 text-xl">Building your financial intelligence system…</h1>
           <div className="mt-8 space-y-3 text-left">
             {BUILD_STEPS.map((s, i) => (
               <div key={s} className="flex items-center gap-3 text-sm">
@@ -420,8 +420,8 @@ export default function Onboarding() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden px-5 py-8">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="orb orb-drift left-[-10%] top-[-10%] h-[480px] w-[480px] bg-blue-600/20" />
-        <div className="orb orb-drift-slow right-[-8%] bottom-[-10%] h-[420px] w-[420px] bg-violet-600/14" />
+        <div className="orb orb-drift left-[-10%] top-[-10%] h-[480px] w-[480px] bg-teal-600/12" />
+        <div className="orb orb-drift-slow right-[-8%] bottom-[-10%] h-[420px] w-[420px] bg-indigo-600/9" />
         <div className="bg-grid absolute inset-0" />
       </div>
 
@@ -438,7 +438,7 @@ export default function Onboarding() {
           </div>
           <div className="h-1.5 overflow-hidden rounded-full bg-raise">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-500 transition-[width] duration-500"
+              className="h-full rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 transition-[width] duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -470,10 +470,10 @@ export default function Onboarding() {
 function StepIntro({ icon, title, body }: { icon: IconName; title: string; body: string }) {
   return (
     <div>
-      <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 text-pulse">
+      <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500/15 to-emerald-500/15 text-pulse">
         <Icon name={icon} size={21} />
       </span>
-      <h1 className="mt-4 text-xl font-semibold tracking-tight">{title}</h1>
+      <h1 className="font-display mt-4 text-[1.4rem] tracking-tight">{title}</h1>
       <p className="mt-2 text-sm leading-relaxed text-fog">{body}</p>
     </div>
   );

@@ -20,7 +20,7 @@ import {
 } from "recharts";
 import { fmtMoney } from "@/lib/format";
 
-/** Validated categorical palette (dark surface #0c1228, adjacent CVD ΔE 33.6). */
+/** Validated categorical palette (dark surface #11161d, adjacent CVD ΔE 15.9). */
 export const SERIES = [
   "var(--color-chart-1)",
   "var(--color-chart-2)",
@@ -29,9 +29,9 @@ export const SERIES = [
   "var(--color-chart-5)",
 ];
 
-const GRID = "rgba(148, 163, 210, 0.10)";
-const AXIS_TEXT = "#5d6785";
-const SURFACE = "#0c1228";
+const GRID = "rgba(163, 178, 194, 0.09)";
+const AXIS_TEXT = "#5f6b7a";
+const SURFACE = "#11161d";
 
 const axisProps = {
   stroke: "transparent",
