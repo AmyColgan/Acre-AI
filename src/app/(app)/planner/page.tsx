@@ -114,7 +114,7 @@ export default function Planner() {
             {turns.length === 0 && !thinking && (
               <div className="rise-in">
                 <div className="flex items-center gap-2.5">
-                  <span className="ai-breathe flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+                  <span className="ai-breathe flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
                     <Icon name="sparkles" size={16} />
                   </span>
                   <p className="text-sm text-fog">
@@ -126,7 +126,7 @@ export default function Planner() {
                     <button
                       key={p}
                       onClick={() => ask(p)}
-                      className="rounded-xl border border-line bg-panel/60 px-3.5 py-3 text-left text-sm text-fog transition-all hover:border-teal-500/40 hover:text-snow cursor-pointer"
+                      className="rounded-xl border border-line bg-panel/60 px-3.5 py-3 text-left text-sm text-fog transition-all hover:border-blue-500/40 hover:text-snow cursor-pointer"
                     >
                       {p}
                     </button>
@@ -138,12 +138,12 @@ export default function Planner() {
             {turns.map((t) => (
               <div key={t.id} className="space-y-3">
                 <div className="flex justify-end">
-                  <div className="max-w-[80%] rounded-2xl rounded-br-md bg-gradient-to-r from-teal-600 to-emerald-600 px-4 py-2.5 text-sm text-white">
+                  <div className="max-w-[80%] rounded-2xl rounded-br-md bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-2.5 text-sm text-white">
                     {t.question}
                   </div>
                 </div>
                 <div className="rise-in flex gap-3">
-                  <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+                  <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
                     <Icon name="sparkles" size={14} />
                   </span>
                   <div className="min-w-0 flex-1 space-y-3">
@@ -203,7 +203,7 @@ export default function Planner() {
 
             {thinking && (
               <div className="flex items-center gap-3 text-fog">
-                <span className="ai-breathe flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+                <span className="ai-breathe flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
                   <Icon name="sparkles" size={14} />
                 </span>
                 <div className="space-y-1.5">
@@ -226,13 +226,13 @@ export default function Planner() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder='Try "Can I afford a $1,200 e-bike?"'
-                className="flex-1 rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none focus:border-teal-500/50"
+                className="flex-1 rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none focus:border-blue-500/50"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || thinking}
                 aria-label="Send"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 text-white transition-all hover:scale-105 active:scale-95 disabled:opacity-40 cursor-pointer"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white transition-all hover:scale-105 active:scale-95 disabled:opacity-40 cursor-pointer"
               >
                 <Icon name="send" size={16} />
               </button>

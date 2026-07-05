@@ -155,6 +155,14 @@ export interface Notification {
   tone: "info" | "good" | "warn";
 }
 
+export interface LearnState {
+  xp: number;
+  /** unitId → indexes of completed lessons */
+  lessonsDone: Record<string, number[]>;
+  /** unitId → quiz passed */
+  quizPassed: Record<string, boolean>;
+}
+
 export interface PulseState {
   version: number;
   profile: Profile;
@@ -171,6 +179,7 @@ export interface PulseState {
   decisions: DecisionReport[];
   recommendations: SavedRecommendation[];
   notifications: Notification[];
+  learn: LearnState;
   /** one-time flags, e.g. dashboard recommendation applied */
   flags: Record<string, boolean>;
 }

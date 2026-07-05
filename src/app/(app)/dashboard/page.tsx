@@ -78,9 +78,9 @@ export default function Dashboard() {
 
       {/* AI summary card */}
       <Card className="rise-in relative overflow-hidden p-5 sm:p-6" >
-        <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-teal-600/15 blur-3xl" />
+        <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-blue-600/15 blur-3xl" />
         <div className="relative flex flex-col gap-5 lg:flex-row lg:items-start">
-          <span className="ai-pulse flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+          <span className="ai-pulse flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
             <Icon name="sparkles" size={22} />
           </span>
           <div className="min-w-0 flex-1 space-y-3">
@@ -104,7 +104,7 @@ export default function Dashboard() {
                 <p className="mt-1 text-xs leading-relaxed text-fog">{brief.opportunity}</p>
               </div>
             </div>
-            <p className="rounded-xl border border-teal-500/20 bg-teal-500/[0.07] p-3 text-sm leading-relaxed text-snow/90">
+            <p className="rounded-xl border border-blue-500/20 bg-blue-500/[0.07] p-3 text-sm leading-relaxed text-snow/90">
               <span className="font-semibold text-pulse">Recommended: </span>
               {brief.recommendation}
             </p>
@@ -388,7 +388,7 @@ function StatCard({
   delta?: { up: boolean; text: string };
 }) {
   const tones = {
-    blue: "text-pulse bg-teal-500/12",
+    blue: "text-pulse bg-blue-500/12",
     green: "text-mint bg-emerald-500/12",
     violet: "text-iris bg-indigo-500/12",
     amber: "text-gold bg-amber-500/12",

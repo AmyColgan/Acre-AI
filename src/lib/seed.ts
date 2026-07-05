@@ -9,6 +9,10 @@ import { addDaysISO, todayISO, uid } from "./format";
 export const STATE_VERSION = 1;
 export const STORAGE_KEY = "pulse-ai-state-v1";
 
+export function defaultLearn() {
+  return { xp: 0, lessonsDone: {}, quizPassed: {} };
+}
+
 export const CATEGORY_META: Record<
   CategoryId,
   { name: string; kind: "fixed" | "variable" }
@@ -371,6 +375,7 @@ export function createSeedState(overrides?: {
     ],
     decisions: [],
     recommendations: [],
+    learn: defaultLearn(),
     notifications: [
       {
         id: uid("ntf"),

@@ -189,7 +189,7 @@ export default function Decisions() {
                 <button
                   key={d.name}
                   onClick={() => analyze({ ...d, deadline: "" })}
-                  className="flex w-full items-center justify-between rounded-xl border border-line bg-panel/60 px-3.5 py-2.5 text-left text-sm text-fog transition-all hover:border-teal-500/40 hover:text-snow cursor-pointer"
+                  className="flex w-full items-center justify-between rounded-xl border border-line bg-panel/60 px-3.5 py-2.5 text-left text-sm text-fog transition-all hover:border-blue-500/40 hover:text-snow cursor-pointer"
                 >
                   <span>{d.name}</span>
                   <Icon name="chevronRight" size={14} className="text-dim" />
@@ -203,7 +203,7 @@ export default function Decisions() {
         <div className="space-y-4">
           {!report && (
             <Card className="flex min-h-[420px] flex-col items-center justify-center p-8 text-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/12 to-emerald-500/12 text-iris">
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/12 to-cyan-500/12 text-iris">
                 <Icon name="scale" size={30} />
               </span>
               <h2 className="mt-5 text-base font-semibold">No decision on the table yet</h2>

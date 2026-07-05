@@ -216,7 +216,7 @@ export default function Budget() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search transactions…"
-                className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none focus:border-teal-500/50"
+                className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none focus:border-blue-500/50"
               />
             </div>
             <Select value={filterCat} onChange={(e) => setFilterCat(e.target.value)} className="w-36">
@@ -278,7 +278,7 @@ export default function Budget() {
                   danger
                     ? "border-amber-500/40 bg-amber-500/10"
                     : day === today
-                      ? "border-teal-500/40 bg-teal-500/10"
+                      ? "border-blue-500/40 bg-blue-500/10"
                       : "border-line bg-panel/40",
                   dayEvents.length > 0 && "hover:border-line-strong"
                 )}
@@ -400,6 +400,18 @@ export default function Budget() {
           <div className="grid grid-cols-2 gap-3">
             <Field label="Amount">
               <MoneyInput value={txForm.amount} onValue={(v) => setTxForm({ ...txForm, amount: v })} placeholder="12.50" />
+              <span className="mt-1.5 flex gap-1.5">
+                {[10, 25, 50, 100].map((a) => (
+                  <button
+                    key={a}
+                    type="button"
+                    onClick={() => setTxForm({ ...txForm, amount: a })}
+                    className="flex-1 rounded-lg border border-line bg-panel/60 py-1 text-[11px] text-fog transition-colors hover:border-blue-500/40 hover:text-snow cursor-pointer"
+                  >
+                    ${a}
+                  </button>
+                ))}
+              </span>
             </Field>
             <Field label="Category">
               <Select
@@ -438,7 +450,7 @@ function TxRow({ t, catName, onDelete }: { t: Transaction; catName: string; onDe
       <span
         className={clsx(
           "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
-          isIn ? "bg-emerald-500/12 text-mint" : isTransfer ? "bg-indigo-500/12 text-iris" : "bg-teal-500/10 text-pulse"
+          isIn ? "bg-emerald-500/12 text-mint" : isTransfer ? "bg-indigo-500/12 text-iris" : "bg-blue-500/10 text-pulse"
         )}
       >
         <Icon name={isIn ? "trendingUp" : isTransfer ? "refresh" : "wallet"} size={14} />

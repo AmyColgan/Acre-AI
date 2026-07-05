@@ -264,7 +264,7 @@ export default function Reports() {
               state.recommendations.map((r) => (
                 <Card key={r.id} className="p-5">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
                       <Icon name="sparkles" size={12} />
                     </span>
                     <h3 className="text-sm font-semibold">{r.topic}</h3>
@@ -297,7 +297,7 @@ export default function Reports() {
               className={clsx(
                 "flex items-center gap-3 rounded-xl border p-3 text-left transition-all cursor-pointer",
                 active === r.key
-                  ? "border-teal-500/50 bg-teal-500/10 text-snow"
+                  ? "border-blue-500/50 bg-blue-500/10 text-snow"
                   : "border-line bg-panel/60 text-fog hover:border-line-strong hover:text-snow"
               )}
             >
@@ -349,7 +349,7 @@ function ReportShell({
       <Card className="p-5">{children}</Card>
       <Card className="p-5">
         <div className="flex items-start gap-3">
-          <span className="ai-breathe mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+          <span className="ai-breathe mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
             <Icon name="sparkles" size={14} />
           </span>
           <div className="space-y-2.5 text-sm leading-relaxed text-fog">

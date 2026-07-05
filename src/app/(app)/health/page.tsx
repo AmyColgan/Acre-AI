@@ -86,7 +86,7 @@ export default function HealthCenter() {
               <ol className="mt-2 space-y-2">
                 {health.topFixes.map((f, i) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm text-fog">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-500/15 text-[11px] font-bold text-pulse">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-[11px] font-bold text-pulse">
                       {i + 1}
                     </span>
                     <span className="flex-1">{f}</span>
@@ -143,7 +143,7 @@ export default function HealthCenter() {
             <button
               onClick={() => createFixTask(sub.action)}
               className={clsx(
-                "mt-3 flex w-full items-center justify-between rounded-xl border border-line bg-panel/60 px-3 py-2 text-left text-[11px] text-fog transition-all hover:border-teal-500/40 hover:text-snow cursor-pointer"
+                "mt-3 flex w-full items-center justify-between rounded-xl border border-line bg-panel/60 px-3 py-2 text-left text-[11px] text-fog transition-all hover:border-blue-500/40 hover:text-snow cursor-pointer"
               )}
             >
               <span className="flex-1 pr-2">{sub.action}</span>
@@ -153,9 +153,9 @@ export default function HealthCenter() {
         ))}
 
         {/* what to fix first */}
-        <Card className="rise-in border-teal-500/25 p-5">
+        <Card className="rise-in border-blue-500/25 p-5">
           <div className="flex items-center gap-2">
-            <span className="ai-breathe flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+            <span className="ai-breathe flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
               <Icon name="sparkles" size={14} />
             </span>
             <h3 className="text-sm font-semibold">What to fix first</h3>

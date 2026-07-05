@@ -23,7 +23,7 @@ import type {
   TaskEffect,
   Transaction,
 } from "./types";
-import { createSeedState, STATE_VERSION, STORAGE_KEY } from "./seed";
+import { createSeedState, defaultLearn, STATE_VERSION, STORAGE_KEY } from "./seed";
 import { uid } from "./format";
 
 /* --------------------------------- toasts ---------------------------------- */
@@ -66,6 +66,9 @@ interface PulseContextValue {
   saveDecision: (d: DecisionReport) => void;
   saveRecommendation: (r: Omit<SavedRecommendation, "id" | "createdAt">) => void;
 
+  completeLesson: (unitId: string, lessonIdx: number, xp: number) => void;
+  passQuiz: (unitId: string, xp: number) => void;
+
   applyEffect: (effect: TaskEffect, label?: string) => void;
   applyBrief: () => void;
 
@@ -102,7 +105,7 @@ export function PulseProvider({ children }: { children: ReactNode }) {
           // one-time sync from localStorage (an external store) after mount —
           // a lazy initializer would break SSR/client HTML consistency.
           // eslint-disable-next-line react-hooks/set-state-in-effect
-          setState(parsed);
+          setState({ ...parsed, learn: parsed.learn ?? defaultLearn() });
         }
       }
     } catch {
@@ -121,13 +124,13 @@ export function PulseProvider({ children }: { children: ReactNode }) {
     }
   }, [state, hydrated]);
 
-  // theme preference (Graphite default vs neutral Charcoal) applies as CSS variables
+  // theme preference (Midnight blue-black default vs neutral Charcoal) applies as CSS variables
   useEffect(() => {
     const charcoal = !!state.flags["themeCharcoal"];
     const root = document.documentElement;
-    root.style.setProperty("--color-void", charcoal ? "#0b0b0e" : "#0a0d12");
-    root.style.setProperty("--color-deep", charcoal ? "#101013" : "#0d1117");
-    root.style.setProperty("--color-panel", charcoal ? "#15151a" : "#11161d");
+    root.style.setProperty("--color-void", charcoal ? "#09090b" : "#05070c");
+    root.style.setProperty("--color-deep", charcoal ? "#0e0e11" : "#080b12");
+    root.style.setProperty("--color-panel", charcoal ? "#131318" : "#0a0f1a");
   }, [state.flags]);
 
   const dismissToast = useCallback((id: string) => {
@@ -301,6 +304,8 @@ export function PulseProvider({ children }: { children: ReactNode }) {
           if (task.effect) next = applyEffectTo(s, task.effect);
           return {
             ...next,
+            // finishing real money work earns XP too — same track as Learn
+            learn: { ...next.learn, xp: next.learn.xp + 25 },
             tasks: next.tasks.map((t) => (t.id === id ? { ...t, status: "done" as const } : t)),
           };
         }),
@@ -328,6 +333,34 @@ export function PulseProvider({ children }: { children: ReactNode }) {
 
       saveDecision: (d) =>
         setState((s) => ({ ...s, decisions: [d, ...s.decisions] })),
+
+      completeLesson: (unitId, lessonIdx, xp) =>
+        setState((s) => {
+          const done = s.learn.lessonsDone[unitId] ?? [];
+          if (done.includes(lessonIdx)) return s;
+          return {
+            ...s,
+            learn: {
+              ...s.learn,
+              xp: s.learn.xp + xp,
+              lessonsDone: { ...s.learn.lessonsDone, [unitId]: [...done, lessonIdx] },
+            },
+          };
+        }),
+
+      passQuiz: (unitId, xp) =>
+        setState((s) =>
+          s.learn.quizPassed[unitId]
+            ? s
+            : {
+                ...s,
+                learn: {
+                  ...s.learn,
+                  xp: s.learn.xp + xp,
+                  quizPassed: { ...s.learn.quizPassed, [unitId]: true },
+                },
+              }
+        ),
 
       saveRecommendation: (r) =>
         setState((s) => ({

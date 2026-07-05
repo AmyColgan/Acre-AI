@@ -11,19 +11,44 @@ import { getHealth } from "@/lib/calc";
 import { fmtMoney } from "@/lib/format";
 import { AIPanel, AIFloatingButton } from "./AIPanel";
 
-export const NAV_ITEMS: { href: string; label: string; icon: IconName }[] = [
-  { href: "/dashboard", label: "Dashboard", icon: "dashboard" },
-  { href: "/planner", label: "AI Planner", icon: "sparkles" },
-  { href: "/decisions", label: "Decision Mode", icon: "scale" },
-  { href: "/goals", label: "Goals & Wealth", icon: "target" },
-  { href: "/budget", label: "Budget & Cash Flow", icon: "wallet" },
-  { href: "/investments", label: "Investments", icon: "chartLine" },
-  { href: "/health", label: "Health Center", icon: "pulse" },
-  { href: "/opportunities", label: "Opportunity Feed", icon: "lightbulb" },
-  { href: "/actions", label: "Action Center", icon: "checkCircle" },
-  { href: "/reports", label: "Reports", icon: "fileText" },
-  { href: "/settings", label: "Settings", icon: "settings" },
+const NAV_GROUPS: { label: string; items: { href: string; label: string; icon: IconName }[] }[] = [
+  {
+    label: "Overview",
+    items: [
+      { href: "/dashboard", label: "Dashboard", icon: "dashboard" },
+      { href: "/learn", label: "Learn", icon: "graduation" },
+    ],
+  },
+  {
+    label: "Plan",
+    items: [
+      { href: "/planner", label: "AI Planner", icon: "sparkles" },
+      { href: "/decisions", label: "Decision Mode", icon: "scale" },
+      { href: "/goals", label: "Goals & Wealth", icon: "target" },
+      { href: "/budget", label: "Budget & Cash Flow", icon: "wallet" },
+    ],
+  },
+  {
+    label: "Grow",
+    items: [
+      { href: "/investments", label: "Investments", icon: "chartLine" },
+      { href: "/health", label: "Health Center", icon: "pulse" },
+      { href: "/opportunities", label: "Opportunity Feed", icon: "lightbulb" },
+    ],
+  },
+  {
+    label: "Manage",
+    items: [
+      { href: "/actions", label: "Action Center", icon: "checkCircle" },
+      { href: "/reports", label: "Reports", icon: "fileText" },
+      { href: "/settings", label: "Settings", icon: "settings" },
+    ],
+  },
 ];
+
+export const NAV_ITEMS: { href: string; label: string; icon: IconName }[] = NAV_GROUPS.flatMap(
+  (g) => g.items
+);
 
 /* --------------------------------- sidebar ---------------------------------- */
 
@@ -35,16 +60,16 @@ function Sidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col border-r border-line bg-deep/70 backdrop-blur-xl lg:flex">
       <Link href="/dashboard" className="flex items-center gap-2.5 px-5 pb-4 pt-6">
-        <span className="ai-pulse flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white shadow-lg">
+        <span className="ai-pulse flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 text-white shadow-lg">
           <Icon name="logo" size={20} strokeWidth={2.2} />
         </span>
         <span className="text-[17px] font-bold tracking-wide">
-          PULSE <span className="bg-gradient-to-r from-teal-300 to-emerald-300 bg-clip-text text-transparent">AI</span>
+          PULSE <span className="bg-gradient-to-r from-sky-300 to-cyan-300 bg-clip-text text-transparent">AI</span>
         </span>
       </Link>
 
       <div className="mx-4 mb-4 flex items-center gap-3 rounded-xl border border-line bg-panel/60 p-3">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-sm font-bold text-white">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-sm font-bold text-white">
           {state.profile.name.slice(0, 1).toUpperCase()}
         </span>
         <div className="min-w-0 flex-1">
@@ -66,25 +91,35 @@ function Sidebar() {
         </Link>
       </div>
 
-      <nav className="flex-1 space-y-0.5 overflow-y-auto px-3 pb-4 scrollbar-none">
-        {NAV_ITEMS.map((item) => {
-          const active = pathname.startsWith(item.href);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={clsx(
-                "group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all",
-                active
-                  ? "bg-gradient-to-r from-teal-500/12 to-transparent text-snow shadow-[inset_2px_0_0_var(--color-pulse)]"
-                  : "text-fog hover:bg-raise/70 hover:text-snow"
-              )}
-            >
-              <Icon name={item.icon} size={17} className={active ? "text-pulse" : "text-dim group-hover:text-fog"} />
-              {item.label}
-            </Link>
-          );
-        })}
+      <nav className="flex-1 overflow-y-auto px-3 pb-4 scrollbar-none">
+        {NAV_GROUPS.map((group) => (
+          <div key={group.label} className="mb-3">
+            <div className="px-3 pb-1 pt-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-dim">
+              {group.label}
+            </div>
+            <div className="space-y-0.5">
+              {group.items.map((item) => {
+                const active = pathname.startsWith(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={clsx(
+                      "group flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition-all",
+                      active
+                        ? "bg-gradient-to-r from-blue-500/12 to-transparent text-snow shadow-[inset_2px_0_0_var(--color-pulse)]"
+                        : "text-fog hover:bg-raise/70 hover:text-snow"
+                    )}
+                  >
+                    <Icon name={item.icon} size={17} className={active ? "text-pulse" : "text-dim group-hover:text-fog"} />
+                    {item.label}
+                    {item.href === "/learn" && <XpChip />}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </nav>
 
       <div className="border-t border-line px-5 py-4 text-[11px] text-dim">
@@ -143,7 +178,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
       <div className="flex items-center gap-3 px-4 py-3 sm:px-6">
         {/* mobile logo */}
         <Link href="/dashboard" className="flex items-center gap-2 lg:hidden">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-teal-500 to-emerald-600 text-white">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
             <Icon name="logo" size={17} strokeWidth={2.2} />
           </span>
         </Link>
@@ -159,7 +194,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
             }}
             onFocus={() => setShowResults(true)}
             placeholder="Search transactions, pages…"
-            className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-teal-500/50"
+            className="w-full rounded-xl border border-line bg-panel/70 py-2 pl-9 pr-3 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-blue-500/50"
           />
           {showResults && (results.pages.length > 0 || results.txs.length > 0) && (
             <div className="glass-strong absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-xl scale-in">
@@ -217,7 +252,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
           <div ref={quickRef} className="relative">
             <button
               onClick={() => setShowQuick((v) => !v)}
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-[0_6px_20px_-6px_rgba(13,148,136,0.7)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-[0_6px_20px_-6px_rgba(37,99,235,0.7)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
               aria-label="Quick actions"
             >
               <Icon name="plus" size={17} strokeWidth={2.2} />
@@ -291,7 +326,7 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
           {/* avatar */}
           <Link
             href="/settings"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 text-sm font-bold text-white ring-1 ring-line transition-transform hover:scale-105"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-sm font-bold text-white ring-1 ring-line transition-transform hover:scale-105"
             title="Settings"
           >
             {state.profile.name.slice(0, 1).toUpperCase()}
@@ -304,11 +339,20 @@ function Header({ onOpenAI }: { onOpenAI: () => void }) {
 
 /* -------------------------------- mobile nav -------------------------------- */
 
+function XpChip() {
+  const { state } = usePulse();
+  return (
+    <span className="ml-auto rounded-full border border-blue-500/30 bg-blue-500/10 px-1.5 py-0.5 text-[9px] font-bold text-pulse font-tabular">
+      {state.learn.xp} XP
+    </span>
+  );
+}
+
 const MOBILE_ITEMS: { href: string; label: string; icon: IconName }[] = [
   { href: "/dashboard", label: "Home", icon: "dashboard" },
+  { href: "/learn", label: "Learn", icon: "graduation" },
   { href: "/budget", label: "Budget", icon: "wallet" },
   { href: "/goals", label: "Goals", icon: "target" },
-  { href: "/health", label: "Health", icon: "pulse" },
 ];
 
 function MobileNav({ onMore }: { onMore: () => void }) {
@@ -363,7 +407,7 @@ function MobileMoreSheet({ open, onClose }: { open: boolean; onClose: () => void
                 className={clsx(
                   "flex flex-col items-center gap-1.5 rounded-xl border p-3 text-center text-[11px] transition-colors",
                   active
-                    ? "border-teal-500/40 bg-teal-500/10 text-snow"
+                    ? "border-blue-500/40 bg-blue-500/10 text-snow"
                     : "border-line bg-panel/60 text-fog"
                 )}
               >

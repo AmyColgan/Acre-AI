@@ -61,7 +61,7 @@ export function Button({
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
   const styles: Record<ButtonVariant, string> = {
     primary:
-      "bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-[0_8px_24px_-8px_rgba(13,148,136,0.7)] hover:from-teal-500 hover:to-emerald-500",
+      "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-[0_8px_24px_-8px_rgba(37,99,235,0.7)] hover:from-blue-500 hover:to-cyan-500",
     secondary:
       "bg-raise text-snow border border-line hover:border-line-strong hover:bg-raise-2",
     ghost: "text-fog hover:text-snow hover:bg-raise",
@@ -104,7 +104,7 @@ export function Badge({
 }) {
   const tones = {
     neutral: "bg-raise text-fog border-line",
-    blue: "bg-teal-500/10 text-pulse border-teal-500/25",
+    blue: "bg-blue-500/10 text-pulse border-blue-500/25",
     green: "bg-emerald-500/10 text-mint border-emerald-500/25",
     violet: "bg-indigo-500/10 text-iris border-indigo-500/25",
     amber: "bg-amber-500/10 text-gold border-amber-500/25",
@@ -183,7 +183,7 @@ export function Modal({
 /* --------------------------------- Fields ----------------------------------- */
 
 const fieldBase =
-  "w-full rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-teal-500/60 focus:ring-2 focus:ring-teal-500/20";
+  "w-full rounded-xl border border-line bg-panel/80 px-3.5 py-2.5 text-sm text-snow placeholder:text-dim outline-none transition-colors focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20";
 
 export function Field({
   label,
@@ -268,7 +268,7 @@ export function Segmented<T extends string>({
           className={clsx(
             "rounded-xl border px-3 py-2.5 text-center transition-all cursor-pointer",
             value === o.value
-              ? "border-teal-500/60 bg-teal-500/10 text-snow shadow-[0_0_20px_-6px_rgba(13,148,136,0.5)]"
+              ? "border-blue-500/60 bg-blue-500/10 text-snow shadow-[0_0_20px_-6px_rgba(37,99,235,0.5)]"
               : "border-line bg-panel/60 text-fog hover:border-line-strong hover:text-snow"
           )}
         >
@@ -292,7 +292,7 @@ export function ProgressBar({
   className?: string;
 }) {
   const tones = {
-    blue: "from-teal-600 to-teal-400",
+    blue: "from-blue-600 to-blue-400",
     green: "from-emerald-700 to-emerald-500",
     violet: "from-indigo-600 to-indigo-400",
     amber: "from-amber-600 to-amber-400",

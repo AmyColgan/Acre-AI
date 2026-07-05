@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { PulseProvider } from "@/lib/store";
 
@@ -9,11 +9,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const grotesk = Space_Grotesk({
+  variable: "--font-grotesk",
   subsets: ["latin"],
   weight: "variable",
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -40,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${inter.variable} ${grotesk.variable} ${jetbrains.variable}`}>
       <body className="bg-void text-snow font-sans antialiased">
         <PulseProvider>{children}</PulseProvider>
       </body>
